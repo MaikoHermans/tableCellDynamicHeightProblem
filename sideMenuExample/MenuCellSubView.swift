@@ -18,9 +18,6 @@ class MenuCellSubView: UIView {
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        
-        addSubCells()
-        self.invalidateIntrinsicContentSize()
     }
     
     override var intrinsicContentSize: CGSize {
@@ -58,7 +55,7 @@ class MenuCellSubView: UIView {
                 imageView.frame = imageViewFrame
                 imageView.contentMode = .scaleAspectFit
                 
-                // add a button to each cell
+                // add a label to each cell
                 let cellLabel = UILabel()
                 let cellLabelFrame = CGRect(x: imageViewFrame.width, y: 0, width: cellFrame.width - imageViewFrame.width, height: 40)
                 cellLabel.frame = cellLabelFrame
