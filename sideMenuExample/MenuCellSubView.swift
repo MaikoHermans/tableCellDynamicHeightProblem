@@ -10,7 +10,7 @@ import UIKit
 
 class MenuCellSubView: UIView {
     var subCells: [MenuTableCellContents] = [] {
-        willSet {
+        didSet {
             addSubCells()
             self.invalidateIntrinsicContentSize()
         }
@@ -62,6 +62,12 @@ class MenuCellSubView: UIView {
             // add the subcell to the cell
             self.addSubview(cellView)
             i += 1
+        }
+    }
+    
+    func cleanSubViews() {
+        for view in self.subviews {
+            view.removeFromSuperview()
         }
     }
 }

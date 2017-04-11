@@ -75,6 +75,7 @@ extension MenuViewController: UITableViewDataSource {
         cell.cell_label.textColor = content.cellTextColor
         //cell.cell_label.font = content.cellFont
         
+        cell.cell_contentView.cleanSubViews()
         cell.cell_contentView.subCells = content.subCells ?? []
         
         return cell
