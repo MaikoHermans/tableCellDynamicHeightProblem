@@ -7,19 +7,23 @@
 //
 
 import UIKit
+import SWRevealViewController
 
 class ViewController: UIViewController {
 
+    @IBOutlet var openMenu: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        revealViewController().rearViewRevealWidth = self.view.frame.width * 0.85
+        openMenu.target = self.revealViewController()
+        openMenu.action = #selector(SWRevealViewController.revealToggle(_:))
+        
+        revealViewController().delegate = self
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        
+        self.hideMenuWhenTappedAround()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 
